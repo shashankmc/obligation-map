@@ -1,0 +1,75 @@
+{
+  "package_id": "bluelab.obligation-map",
+  "package_version": "0.1.0",
+  "package_type": "legalblocks.module_package",
+  "artifact_types": [
+    {
+      "id": "bluelab.obligation_map",
+      "label": "obligation_map",
+      "color": "#8E6E2E",
+      "short": "map"
+    }
+  ],
+  "modules": [
+    {
+      "module_id": "obligationMap",
+      "label": "Obligation Map",
+      "category": "nlp",
+      "glyph": "◇",
+      "family": "processing",
+      "display": {
+        "sub": "obligation_map · dependency / conflict / enables",
+        "note": "Student-annotated relations over the eventic graph; every edge cited"
+      },
+      "inputs": [
+        {
+          "port_id": "obligation_set",
+          "artifact_type": "bluelab.obligation_set"
+        },
+        {
+          "port_id": "eventic_graph",
+          "artifact_type": "bluelab.eventic_graph"
+        }
+      ],
+      "outputs": [
+        {
+          "port_id": "obligation_map",
+          "artifact_type": "bluelab.obligation_map"
+        }
+      ],
+      "configuration": {
+        "parameters": [
+          {
+            "name": "obligation_map_endpoint",
+            "type": "artifact_endpoint",
+            "label": "Obligation map store",
+            "artifact_key": "bl-obligation-map",
+            "match": "exact",
+            "default": {
+              "adapter": "local"
+            }
+          }
+        ]
+      },
+      "execution": {
+        "type": "backend",
+        "entrypoint": "relations.ts"
+      },
+      "permissions": [
+        "read_documents"
+      ],
+      "requires_auth": true,
+      "provides_screen": {
+        "screen_type_id": "bluelab.map",
+        "label": "Obligation Map",
+        "glyph": "◇",
+        "desc": "Map dependencies between obligations; each relation needs a source citation (Step 4).",
+        "needs": [
+          "bluelab.obligation_map"
+        ],
+        "optional": [],
+        "page_template": "pages/map.vue"
+      }
+    }
+  ]
+}
