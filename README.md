@@ -2,12 +2,12 @@
 
 > Student-annotated relations over the eventic graph; every edge cited
 
-**LegalBlocks module package** `bluelab.obligation-map` v0.1.0
+**LegalBlocks module package** `obligation-map` v0.1.0
 
-- **Execution**: backend (provides screen `bluelab.map`)
+- **Execution**: backend (provides screen `map`)
 - **Entrypoint**: `relations.ts`
-- **Inputs**: `bluelab.obligation_set`, `bluelab.eventic_graph`
-- **Outputs**: `bluelab.obligation_map`
+- **Inputs**: `obligation-set`, `eventic-graph`
+- **Outputs**: `obligation-map`
 - **Artifact I/O**: via [`@legalblocks/module-runtime`](../module-runtime) (configurable adapter: localStorage by default, HTTP endpoint when configured)
 
 

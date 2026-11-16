@@ -1,12 +1,12 @@
 <template>
   <div class="lb-page page-map">
     <div class="page-header">
-      <div class="eyebrow">bluelab · step 4</div>
+      <div class="eyebrow">compliance · step 3</div>
       <h1 class="serif page-title">Obligation Map</h1>
       <p class="page-sub mono">Link obligations by dependency, conflict, or enablement. Every relation needs a source citation.</p>
     </div>
 
-    <p v-if="!nodes.length" class="map-empty mono">No obligations yet. Build the register in Step 3 first.</p>
+    <p v-if="!nodes.length" class="map-empty mono">No obligations yet. Build the register in Step 2 first.</p>
 
     <template v-else>
       <!-- dependency-free SVG graph -->
@@ -75,10 +75,10 @@ import { useArtifact } from '@legalblocks/module-runtime'
 
 const RELATION_TYPES = ['depends_on', 'conflicts_with', 'enables']
 
-// Artifact I/O via the bus: read the obligation_set the adapter persisted and
-// write the obligation_map for Step 5. Adapter resolved from config, not hardcoded.
-const obligationSet = useArtifact('bl-obligation-set')
-const obligationMap = useArtifact('bl-obligation-map')
+// Artifact I/O via the bus: read the obligation_set the classifier persisted and
+// write the obligation_map for Step 4. Adapter resolved from config, not hardcoded.
+const obligationSet = useArtifact('obligation-set')
+const obligationMap = useArtifact('obligation-map')
 
 let nodeSeed = []
 try {
@@ -113,10 +113,10 @@ const passed = computed(() => relations.value.length > 0)
 
 function persist() {
   obligationMap.write({
-    artifact_type: 'bluelab.obligation_map',
+    artifact_type: 'obligation-map',
     schema_version: '0.1.0',
     payload: { nodes: nodes.value, relations: relations.value },
-    lineage: { produced_by_package: 'bluelab.obligation-map', produced_by_module: 'obligationMap' },
+    lineage: { produced_by_package: 'obligation-map', produced_by_module: 'obligationMap' },
   }).catch(() => {})
 }
 

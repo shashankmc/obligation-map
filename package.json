@@ -1,15 +1,15 @@
 {
-  "name": "@legalblocks/bl-obligation-map",
+  "name": "@legalblocks/obligation-map",
   "version": "0.1.0",
   "description": "Student-annotated relations over the eventic graph; every edge cited",
   "private": false,
   "type": "module",
   "license": "MIT",
   "legalblocks": {
-    "package_id": "bluelab.obligation-map",
+    "package_id": "obligation-map",
     "manifest": "package.manifest.json",
     "execution_type": "backend",
-    "provides_screen": "bluelab.map"
+    "provides_screen": "map"
   },
   "main": "relations.ts",
   "files": [

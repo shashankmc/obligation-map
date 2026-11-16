@@ -1,6 +1,6 @@
 /**
- * bl-obligation-map — BlueLab Step 4. Turns the obligation_set + eventic_graph
- * (from bl-obligation-adapter) into an obligation map the student annotates with
+ * obligation-map — compliance step 3. Turns the obligation_set + eventic_graph
+ * (from deontic-classifier) into an obligation map the student annotates with
  * dependency / conflict / enabling relations.
  *
  * Guardrail, same spirit as the adapter: a student-asserted relation is only
@@ -14,7 +14,7 @@
  * generated app.
  */
 
-// ── Upstream payloads (bluelab.obligation_set / bluelab.eventic_graph) ───────
+// ── Upstream payloads (obligation-set / eventic-graph) ───────────────────────
 export type DeonticType = 'power' | 'right' | 'obligation' | 'permission' | 'prohibition';
 export type DeonticWord = 'shall' | 'shall not' | 'may' | 'must' | 'must not' | 'may not';
 

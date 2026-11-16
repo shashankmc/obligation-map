@@ -1,6 +1,6 @@
 /**
- * Tests for the BlueLab obligation map relations + guardrail.
- * Run: npx tsx modules/bl-obligation-map/relations.test.ts
+ * Tests for the obligation map relations + guardrail.
+ * Run: npx tsx modules/obligation-map/relations.test.ts
  */
 import assert from 'node:assert';
 import {
@@ -90,4 +90,4 @@ ok('an unknown relation_type is rejected', () => {
   assert.ok(r.failures.some(f => f.rule === 'relation_type'));
 });
 
-console.log(`\nbl-obligation-map: ${passed} passed`);
+console.log(`\nobligation-map: ${passed} passed`);
